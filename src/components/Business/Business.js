@@ -38,3 +38,5 @@ class Business extends React.component {
         )
     }
 }
+
+export default Business;
