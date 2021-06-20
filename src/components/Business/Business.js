@@ -14,5 +14,26 @@ business = {
 }
 
 class Business extends React.component {
-    
+    render(){
+        return (
+            <div class="business">
+                <div class="imageContainer">
+                    <img src={business.imageSrc} alt=''/>
+                </div>
+                <h2>{business.name}</h2>
+                <div class="businessInformation">
+                    <div class="businessAddress">
+                    <p>{busines.address}</p>
+                    <p>{busines.city}</p>
+                    <p>{business.state} {business.zipCode}</p>
+                    </div>
+                    <div class="businessReviews">
+                    <h3>{business.category}</h3>
+                    <h3 class="rating">{business.rating}</h3>
+                    <p>{business.reviewCount}</p>
+                    </div>
+                </div>
+            </div>
+        )
+    }
 }
