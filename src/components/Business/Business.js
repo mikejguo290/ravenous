@@ -26,12 +26,12 @@ class Business extends React.Component {
                     <div class="Business-address">
                     <p>{business.address}</p>
                     <p>{business.city}</p>
-                    <p>{business.state} {business.zipCode}</p>
+                    <p>{`${business.state} ${business.zipCode}`}</p>
                     </div>
                     <div class="Business-reviews">
-                    <h3>{business.category}</h3>
-                    <h3 class="rating">{business.rating}</h3>
-                    <p>{business.reviewCount}</p>
+                    <h3>{business.category.toUpperCase()}</h3>
+                    <h3 class="rating">{`${business.rating} stars`}</h3>
+                    <p>{`${business.reviewCount} reviews`}</p>
                     </div>
                 </div>
             </div>
