@@ -3,7 +3,7 @@ import './App.css'
 import BusinessList from '../BusinessList/BusinessList';
 import SearchBar from '../SearchBar/SearchBar';
 
-class App extends React.component {
+class App extends React.Component {
   render(){
     return (
       <div class="App">

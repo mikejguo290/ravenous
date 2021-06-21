@@ -13,7 +13,7 @@ const sortByOptions = {
     'Most Reviewed': 'review_count',
 }
 
-class SearchBar extends React.component {
+class SearchBar extends React.Component {
     
     renderSortByOptions() {
         // dynamically display the list used to show the three sort options
