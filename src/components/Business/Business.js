@@ -2,7 +2,7 @@ import React from 'react';
 import './Business.css' // import the css file which is on the same level as the .js file
 
 // data container of relevant fields we want to render in Business
-business = {
+const business = {
     imageSrc: 'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
     name: 'MarginOtto Pizzeria',
     address: '1010 Paddington Way',
