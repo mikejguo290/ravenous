@@ -21,7 +21,7 @@ class SearchBar extends React.component {
             // more semantic to use singular form of the thing you are applying .map() to instead of key, val, all the way. Although harder to read without creating intermediate variables.
             Object.keys(sortByOptions).map((sortByOption)=> {
                 const sortByOptionValue = sortByOptions[sortByOption]; // confusiongly, sortByOptionValue is used for the key of the list item. 
-            <li key={sortByOptionValue}>{sortByOption}</li>
+                return <li key={sortByOptionValue}>{sortByOption}</li>
             })
         )
     }
@@ -39,7 +39,7 @@ class SearchBar extends React.component {
                     <input placeholder="Where?" />
                 </div>
                 <div class="SearchBar-submit">
-                    <a>Let's Go</a>
+                    <a href="#">Let's Go</a>
                 </div>
             </div>        
         )
