@@ -39,9 +39,12 @@ class SearchBar extends React.Component {
 
     handleTermChange(event) {
         // handle term change to be triggered by events - ie. input onChange event, accept event as input. 
+        this.setState({});
     }
 
-    handleLocationChange(event) {}
+    handleLocationChange(event) {
+        this.setState({});
+    }
 
     renderSortByOptions() {
         // dynamically display the list used to show the three sort options
