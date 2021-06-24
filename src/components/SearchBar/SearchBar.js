@@ -14,7 +14,9 @@ const sortByOptions = {
 }
 
 class SearchBar extends React.Component {
-    
+    constructor(props){
+        super(props);
+    }
     renderSortByOptions() {
         // dynamically display the list used to show the three sort options
         return (
