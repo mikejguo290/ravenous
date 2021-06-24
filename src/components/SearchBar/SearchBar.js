@@ -21,6 +21,14 @@ class SearchBar extends React.Component {
             location:'',
             sortBy: 'best_match'
         };
+        this.sortByOptions = {
+            // save list of key value pairs to format API GET requests later on. 
+            // keys = human readable text
+            // values = api sortBy parameter values
+            'Best Match': 'best_match',
+            'Highest Rated': 'rating',
+            'Most Reviewed': 'review_count',
+        }
     }
     renderSortByOptions() {
         // dynamically display the list used to show the three sort options
