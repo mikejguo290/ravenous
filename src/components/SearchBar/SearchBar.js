@@ -33,8 +33,15 @@ class SearchBar extends React.Component {
     }
 
     handleSortByChange(sortByOption){
+        // use .bind() in its call on <li onClick={}> to pass along its context this and the arg for sortByOption.
         this.setState({sortBy:sortByOption});
     }
+
+    handleTermChange(event) {
+        // handle term change to be triggered by events - ie. input onChange event, accept event as input. 
+    }
+
+    handleLocationChange(event) {}
 
     renderSortByOptions() {
         // dynamically display the list used to show the three sort options
