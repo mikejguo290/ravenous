@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+the third part of Ravenous: Setting the State of Ravenous Components.
+as a reminder in the second part, I 
+
+Moved business information to the container component (App)
+Passed information from parent components (App) to child components (BusinessList, Business)
+
+Certain components will need to handle changes in their state. For example, the sorting options in the search bar will change (and we’ll need to know their state when communicating with the Yelp API). The same goes for the two input elements.
