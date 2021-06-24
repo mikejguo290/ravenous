@@ -41,7 +41,7 @@ class SearchBar extends React.Component {
             // more semantic to use singular form of the thing you are applying .map() to instead of key, val, all the way. Although harder to read without creating intermediate variables.
             Object.keys(this.sortByOptions).map((sortByOption)=> {
                 const sortByOptionValue = this.sortByOptions[sortByOption]; // confusiongly, sortByOptionValue is used for the key of the list item. 
-                return <li key={sortByOptionValue}>{sortByOption}</li>
+                return <li className={this.getSortByClass(sortByOptionValue)} key={sortByOptionValue}>{sortByOption}</li>
             })
         )
     }
