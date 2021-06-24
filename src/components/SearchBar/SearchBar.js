@@ -22,6 +22,14 @@ class SearchBar extends React.Component {
             'Most Reviewed': 'review_count',
         }
     }
+
+    getSortByClass(sortByOption) {
+        if(this.state.sortBy===sortByOption){
+            return 'active';
+        }
+        return ''
+    }
+
     renderSortByOptions() {
         // dynamically display the list used to show the three sort options
         return (
