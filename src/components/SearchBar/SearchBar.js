@@ -52,9 +52,14 @@ class SearchBar extends React.Component {
         const location = event.target.value;
         this.setState({location: location});
     }
-    handleSearch(){
-        // handle what should happen when the 'Let's go' button is pressed 
-    
+    handleSearch(event){
+        // handle what should happen when the 'Let's go' button is pressed
+
+        // why am i pssing searchYelp as props!?!  except maybe the real version of searchYelp is going to be at App leve.
+        let term = this.state.term;
+        let location = this.state.location;
+        let sortBy = this.state.sortBy
+        this.props.searchYelp( term, location, sortBy);
     }
 
     searchYelp(term, location, sortBy){
@@ -74,7 +79,6 @@ class SearchBar extends React.Component {
     }
     
     // pssing prop searchYelp to SearchBar, is it similar to passing handleSubmit to form 's onSubmit method? i don't see how it can fulfil's print function.
-
     render (){
         return (
             <div class="SearchBar" searchYelp={this.searchYelp} >
