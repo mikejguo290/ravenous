@@ -71,7 +71,7 @@ class SearchBar extends React.Component {
 
     render (){
         return (
-            <div class="SearchBar">
+            <div class="SearchBar" searchYelp={this.searchYelp} >
                 <div class="SearchBar-sort-options">
                     <ul>
                         {this.renderSortByOptions()}
