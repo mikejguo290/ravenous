@@ -12,7 +12,9 @@ class SearchBar extends React.Component {
             location:'',
             sortBy: 'best_match'
         };
-
+        this.handleTermChange = this.handleTermChange.bind(this);
+        this.handleLocationChange = this.handleLocationChange.bind(this);
+        
         this.sortByOptions = {
             // member variable - variable inside constructor method.
             // save list of key value pairs to format API GET requests later on. 
@@ -22,6 +24,7 @@ class SearchBar extends React.Component {
             'Highest Rated': 'rating',
             'Most Reviewed': 'review_count',
         }
+
     }
 
     getSortByClass(sortByOption) {
