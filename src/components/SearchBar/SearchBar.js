@@ -64,6 +64,13 @@ class SearchBar extends React.Component {
         event.preventDefault();
     }
 
+    /* 
+    1.conditional css class name, upon rerendering , call on a method to check whether attribute of rendered element is the same as state.
+    2.member parameter for the sortByOptions object, 
+    3.iterate through the Object.keys to map each option to a returned jsx element. 
+    4.bind inline, outsisde of constructor and use func.bind(this,para) to pass in a parameter as well as bind this.
+    */
+
     renderSortByOptions() {
         // dynamically display the list used to show the three sort options
         return (
