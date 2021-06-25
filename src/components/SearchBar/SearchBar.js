@@ -39,11 +39,14 @@ class SearchBar extends React.Component {
 
     handleTermChange(event) {
         // handle term change to be triggered by events - ie. input onChange event, accept event as input. 
-        this.setState({});
+        const term = event.target.value;
+        this.setState({term: term});
     }
 
     handleLocationChange(event) {
-        this.setState({});
+        // take the typed input to the element and update the state of the element.
+        const location = event.target.value;
+        this.setState({location: location});
     }
 
     renderSortByOptions() {
