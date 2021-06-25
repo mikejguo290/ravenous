@@ -53,6 +53,10 @@ class SearchBar extends React.Component {
         this.setState({location: location});
     }
 
+    searchYelp(){
+        //function to simulate what clicking on "Let's go" button would do. - making a call to Yelp API.
+    }
+
     renderSortByOptions() {
         // dynamically display the list used to show the three sort options
         return (
