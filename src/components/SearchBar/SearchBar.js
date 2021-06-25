@@ -14,7 +14,7 @@ class SearchBar extends React.Component {
         };
         this.handleTermChange = this.handleTermChange.bind(this);
         this.handleLocationChange = this.handleLocationChange.bind(this);
-        
+
         this.sortByOptions = {
             // member variable - variable inside constructor method.
             // save list of key value pairs to format API GET requests later on. 
@@ -29,6 +29,7 @@ class SearchBar extends React.Component {
 
     getSortByClass(sortByOption) {
         //return a class for css conditionally on whether its sortByOption parameter = this.state.sortBy
+        //runs all the time, isn't triggered by an event. On each render, this method evaluate to a class name for the li element.
         if(this.state.sortBy===sortByOption){
             return 'active';
         }
@@ -72,8 +73,8 @@ class SearchBar extends React.Component {
                     </ul>
                 </div>
                 <div class="SearchBar-fields">
-                    <input placeholder="Search Businesses" />
-                    <input placeholder="Where?" />
+                    <input placeholder="Search Businesses"/>
+                    <input placeholder="Where?"/>
                 </div>
                 <div class="SearchBar-submit">
                     <a href="#">Let's Go</a>
