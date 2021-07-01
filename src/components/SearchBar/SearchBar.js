@@ -73,13 +73,18 @@ class SearchBar extends React.Component {
 
     renderSortByOptions() {
         // dynamically display the list used to show the three sort options
-        return (
-            // more semantic to use singular form of the thing you are applying .map() to instead of key, val, all the way. Although harder to read without creating intermediate variables.
-            Object.keys(this.sortByOptions).map((sortByOption)=> {
-                const sortByOptionValue = this.sortByOptions[sortByOption]; // confusiongly, sortByOptionValue is used for the key of the list item. 
-                return <li className={this.getSortByClass(sortByOptionValue)} key={sortByOptionValue} onClick={this.handleSortByChange.bind(this, sortByOptionValue)}>{sortByOption}</li>
-            })
-        )
+
+        // aside. more semantic to use singular form of the thing you are applying .map() to instead of key, val, all the way. Although harder to read without creating intermediate variables.
+
+        return Object.keys(this.sortByOptions).map((sortByOption)=> {
+            const sortByOptionValue = this.sortByOptions[sortByOption]; // confusiongly, sortByOptionValue is used for the key of the list item. 
+            return (<li className={this.getSortByClass(sortByOptionValue)} 
+                        key={sortByOptionValue} 
+                        onClick={this.handleSortByChange.bind(this, sortByOptionValue)}>
+                        {sortByOption}
+                    </li>);
+            });
+        
     }
     
     
@@ -99,7 +104,7 @@ class SearchBar extends React.Component {
                     <a href="#" onClick={this.handleSearch}>Let's Go</a>
                 </div>
             </div>        
-        )
+        );
     }
 }
 
