@@ -25,7 +25,14 @@ const Yelp = {
             throw new Error('request has failed!')
         }, networkError => console.log(networkError.message)
         ).then((jsonResponse) =>{
+            // validate returned response - check if response obj contains businesses key 
+            // which would represent a valid response; 
 
+            // Object.prototype.hasOwnProperty can test whether an object has a property as its own property (as opposed to inheriting it.)
+            // codeCademy suggested code is if(jsonResponse.businesses) which seem to test both if key exists and if there is a value!
+            if (jsonResponse.hasOwnProperty('businesses')){
+
+            }
         });
     }
 };
