@@ -14,7 +14,11 @@ const Yelp = {
         &location=${location}
         &sort_by=${sortBy}`;
 
-        return fetch(url);
+        return fetch(url,{
+            headers: {
+                'Authorization':`Bearer ${apiKey}`
+            }
+        });
     }
 };
 
