@@ -88,3 +88,5 @@ const Yelp = {
     Back in your code, prepend the URL path you passed to the first argument in fetch() with the following:
     https://cors-anywhere.herokuapp.com/
     */
+
+    export { Yelp as default };
