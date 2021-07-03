@@ -28,7 +28,7 @@ const Yelp = {
             // codeCademy suggested code is if(jsonResponse.businesses) which seem to test both if key exists and if there is a value!
             if (jsonResponse.hasOwnProperty('businesses')){
                 // jsonRes.businesses returns list of individual business objects.
-                // map jsonRes object properties to the props passed from App -> BusinessList -> Business
+                // map jsonRes object properties to the props passed from App -> BusinessList -> Business                
                 const businesses = jsonResponse.businesses.map(business => {
                     return {
                         id: business.id,
@@ -38,7 +38,7 @@ const Yelp = {
                         city: business.location.city,
                         state: business.location.state,
                         zipCode: business.location.zip_code,
-                        category: business.categories.title,
+                        category: business.categories[0].title,
                         rating: business.rating,
                         reviewCount: business.review_count,
                     }
