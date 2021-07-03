@@ -4,19 +4,15 @@ exposed at build as they become part of the React app.
 secrets must be secured on the back end and front-end should make calls to the back-end which then makes calls to
 third party APIs and return data to the front-end client app.
 */
-console.log(process.env.REACT_APP_YELP_API_KEY);
+
 const Yelp = {
     search (term, location, sortBy){
         /* return a promise which will resolve to list of businesses. */
-        const url = `https://cors-anywhere.herokuapp.com/
-        https://api.yelp.com/v3/businesses/search?
-        term=${term}
-        &location=${location}
-        &sort_by=${sortBy}`;
-
+        const url = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}`;
+        
         return fetch(url,{
             headers: {
-                'Authorization':`Bearer ${apiKey}`
+                'Authorization':`Bearer ${apiKey}`,
             }
         }).then((response)=>{
             if(response.ok){
@@ -33,7 +29,7 @@ const Yelp = {
             if (jsonResponse.hasOwnProperty('businesses')){
                 // jsonRes.businesses returns list of individual business objects.
                 // map jsonRes object properties to the props passed from App -> BusinessList -> Business
-                jsonResponse.map(business => {
+                const businesses = jsonResponse.businesses.map(business => {
                     return {
                         id: business.id,
                         imageSrc: business.image_url,
@@ -47,6 +43,7 @@ const Yelp = {
                         reviewCount: business.review_count,
                     }
                 })
+                return businesses; // must return an array when Promise successfully resolves.
             }
         });
     }
