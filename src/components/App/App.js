@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css'
 import BusinessList from '../BusinessList/BusinessList';
 import SearchBar from '../SearchBar/SearchBar';
+import Yelp from '../../util/Yelp';
 
 // App will be the component to first receive data from Yelp API - a list of business. simulate that by hard coding list of businesses here. 
 const business = {
