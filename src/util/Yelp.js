@@ -31,11 +31,37 @@ const Yelp = {
             // Object.prototype.hasOwnProperty can test whether an object has a property as its own property (as opposed to inheriting it.)
             // codeCademy suggested code is if(jsonResponse.businesses) which seem to test both if key exists and if there is a value!
             if (jsonResponse.hasOwnProperty('businesses')){
-
+                // jsonRes.businesses returns list of individual business objects.
+                // map jsonRes object properties to the props passed from App -> BusinessList -> Business
+                jsonResponse.map(business => {
+                    return {
+                        imageSrc: business.image_url,
+                        name: business.name,
+                        address: business.location.address1,
+                        city: business.location.city,
+                        state: business.location.state,
+                        zipCode: business.location.zip_code,
+                        category: business.categories.title,
+                        rating: business.rating,
+                        reviewCount: business.review_count,
+                    }
+                })
             }
         });
     }
 };
+
+/* 
+  imageSrc: 'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
+  name: 'MarginOtto Pizzeria',
+  address: '1010 Paddington Way',
+  city: 'Flavortown',
+  state: 'NY',
+  zipCode: '10101',
+  category: 'Italian',
+  rating: 4.5,
+  reviewCount: 90
+*/
 
 /*  CORS - Cross Origin Resource Sharing 
     access of data and files across different origins. e.g. website and the api it calls. 
