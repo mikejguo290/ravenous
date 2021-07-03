@@ -17,7 +17,11 @@ class App extends React.Component {
   }
 
   searchYelp(term, location, sortBy){
-    Yelp.search(term, location, sortBy); // Yelp is an object exported as default by Yelp.js
+    // call Yelp.search and update state businesses.
+
+    // Yelp is an object exported as default by Yelp.js
+    Yelp.search(term, location, sortBy).then(businesses => this.setState({businesses: businesses})); 
+    // .then() allows the async Yelp.search() to complete before setting state.
   }
 
   render(){
