@@ -35,6 +35,7 @@ const Yelp = {
                 // map jsonRes object properties to the props passed from App -> BusinessList -> Business
                 jsonResponse.map(business => {
                     return {
+                        id: business.id,
                         imageSrc: business.image_url,
                         name: business.name,
                         address: business.location.address1,
