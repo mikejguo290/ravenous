@@ -2,12 +2,17 @@
 const Yelp = {
     search (term, location, sortBy){
         /* return a promise which will resolve to list of businesses. */
-        const url = `https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}`;
+        const url = `https://cors-anywhere.herokuapp.com/
+        https://api.yelp.com/v3/businesses/search?
+        term=${term}
+        &location=${location}
+        &sort_by=${sortBy}`;
+        
         return fetch(url);
     }
 };
 
-/* CORS - Cross Origin Resource Sharing 
+/*  CORS - Cross Origin Resource Sharing 
     access of data and files across different origins. e.g. website and the api it calls. 
     the browsers implement a Same Origin Resource policy which allows sites to request 
     resources from server with the same origin but forbids cross origin resource sharing.
@@ -20,4 +25,14 @@ const Yelp = {
     the solution is to FIRST, enable CORS on the server, SECOND, match url on the server to the client's url. 
 
     e.g. the spotify Jamming project avoided this because there was a requirement 
-    to register app's url with spotify app account. */
+    to register app's url with spotify app account. 
+    
+    We can bypass this restriction with an API called CORS Anywhere. 
+    CORS Anywhere will take requests sent to its API endpoint, make them for the requesting app with 
+    the proper CORS permissions, and then return the response back to the requesting app.
+
+    In your own browser, visit https://cors-anywhere.herokuapp.com/corsdemo and click 
+    “Request temporary access to the demo server”
+    Back in your code, prepend the URL path you passed to the first argument in fetch() with the following:
+    https://cors-anywhere.herokuapp.com/
+    */
