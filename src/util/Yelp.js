@@ -1,4 +1,10 @@
-
+const apiKey = process.env.REACT_APP_YELP_API_KEY;
+/* client side apps like React cannot store client secrets securely. These environment variables are 
+exposed at build as they become part of the React app.
+secrets must be secured on the back end and front-end should make calls to the back-end which then makes calls to
+third party APIs and return data to the front-end client app.
+*/
+console.log(process.env.REACT_APP_YELP_API_KEY);
 const Yelp = {
     search (term, location, sortBy){
         /* return a promise which will resolve to list of businesses. */
@@ -7,7 +13,7 @@ const Yelp = {
         term=${term}
         &location=${location}
         &sort_by=${sortBy}`;
-        
+
         return fetch(url);
     }
 };
