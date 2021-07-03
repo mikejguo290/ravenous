@@ -18,7 +18,12 @@ const Yelp = {
             headers: {
                 'Authorization':`Bearer ${apiKey}`
             }
-        });
+        }).then((response)=>{
+            if(response.ok){
+                return response.json();
+            }
+            throw new Error('request has failed!')
+        }, networkError => console.log(networkError.message));
     }
 };
 
