@@ -23,7 +23,10 @@ const Yelp = {
                 return response.json();
             }
             throw new Error('request has failed!')
-        }, networkError => console.log(networkError.message));
+        }, networkError => console.log(networkError.message)
+        ).then((jsonResponse) =>{
+
+        });
     }
 };
 
