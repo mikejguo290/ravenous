@@ -3,6 +3,7 @@ const apiKey = process.env.REACT_APP_YELP_API_KEY;
 exposed at build as they become part of the React app.
 secrets must be secured on the back end and front-end should make calls to the back-end which then makes calls to
 third party APIs and return data to the front-end client app.
+but then. what's the point of having a front end app which should update automatically without making calls to its server?
 */
 
 const Yelp = {
