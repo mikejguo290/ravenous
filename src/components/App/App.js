@@ -17,9 +17,7 @@ class App extends React.Component {
   }
 
   searchYelp(term, location, sortBy){
-    //function to simulate what clicking on "Let's go" button would do. - making a call to Yelp API.
-    // will need to bind this when I use a constructor in App
-    console.log(`Searching Yelp with ${term}, ${location}, ${sortBy}`);
+    Yelp.search(term, location, sortBy); // Yelp is an object exported as default by Yelp.js
   }
 
   render(){
