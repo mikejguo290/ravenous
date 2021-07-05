@@ -44,6 +44,7 @@ const Yelp = {
                         reviewCount: business.review_count,
                         latitude: business.coordinates.latitude,
                         longitude: business.coordinates.longitude,
+                        url: business.url
                     }
                 })
                 return businesses; // must return an array when Promise successfully resolves.
