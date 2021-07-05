@@ -15,7 +15,7 @@ class SearchBar extends React.Component {
         this.handleTermChange = this.handleTermChange.bind(this);
         this.handleLocationChange = this.handleLocationChange.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
-
+        this.keyDownSearch = this.keyDownSearch.bind(this);
         this.sortByOptions = {
             // member variable - variable inside constructor method.
             // save list of key value pairs to format API GET requests later on. 
@@ -95,7 +95,25 @@ class SearchBar extends React.Component {
     it would require setting state for sortByOption, then checking on each update-render whether its state has changed
     and if so, implement a search with componentDidUpdate lifecycle method
     */
+
+    keyDownSearch(event){
+        // on pressing enter key, trigger search of Yelp API
+        if(event.key==="Enter"){
+            this.handleSearch(event);
+        }
+      }
     
+    //onKeyDown={this.keyDownSearch}
+
+    componentDidMount(){
+        // want to listen for key down enter on whole document, not just on a component.
+        document.addEventListener('keydown', this.keyDownSearch);
+    }
+
+    componentWillUnmount(){
+        document.removeEventListener('keydown', this.keyDownSearch);
+    }
+
     componentDidUpdate(prevProps, prevState, snapshot){
         // componentDidUpdate will only take three arguments in this order. 
         
