@@ -61,7 +61,10 @@ class SearchBar extends React.Component {
         let term = this.state.term;
         let location = this.state.location;
         let sortBy = this.state.sortBy
-        this.props.searchYelp( term, location, sortBy);
+        if(location){
+            // location is the only required parameter in absence of latitude and longitude!
+            this.props.searchYelp( term, location, sortBy);
+        }
         event.preventDefault();
     }
 
@@ -104,7 +107,6 @@ class SearchBar extends React.Component {
                 this.props.searchYelp( term, location, sortBy);
             }
         }
-        
     }
     
     render (){
