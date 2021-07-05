@@ -24,6 +24,7 @@ class SearchBar extends React.Component {
             'Best Match': 'best_match',
             'Highest Rated': 'rating',
             'Most Reviewed': 'review_count',
+            'Shortest Distance': 'distance',
         }
 
     }
@@ -79,7 +80,7 @@ class SearchBar extends React.Component {
         // dynamically display the list used to show the three sort options
 
         // aside. more semantic to use singular form of the thing you are applying .map() to instead of key, val, all the way. Although harder to read without creating intermediate variables.
-
+        // aside. as the buttons are coded in React from the member variable, simple to add another option -> functional button. no changes required to methods because options abstracted to state.sortBy
         return Object.keys(this.sortByOptions).map((sortByOption)=> {
             const sortByOptionValue = this.sortByOptions[sortByOption]; // confusiongly, sortByOptionValue is used for the key of the list item. 
             return (<li className={this.getSortByClass(sortByOptionValue)} 
