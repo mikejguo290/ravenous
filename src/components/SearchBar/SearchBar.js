@@ -54,6 +54,7 @@ class SearchBar extends React.Component {
         this.setState({location: location});
     }
 
+
     handleSearch(event){
         // handle what should happen when the 'Let's go' button is pressed
 
@@ -87,6 +88,24 @@ class SearchBar extends React.Component {
         
     }
     
+    /* whenever sortByOption changes, initiate a new search without clicking Let's go. 
+    it would require setting state for sortByOption, then checking on each update-render whether its state has changed
+    and if so, implement a search with componentDidUpdate lifecycle method
+    */
+    
+    componentDidUpdate(prevProps, prevState, snapshot){
+        // componentDidUpdate will only take three arguments in this order. 
+        
+        // if sortBy option changes, and term and location are filled in, call searchYelp again.
+        if (this.state.sortBy !== prevState.sortBy){
+            const {term, location, sortBy}= this.state;
+            
+            if (term && location){
+                this.props.searchYelp( term, location, sortBy);
+            }
+        }
+        
+    }
     
     render (){
         return (
