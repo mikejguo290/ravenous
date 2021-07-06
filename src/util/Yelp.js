@@ -50,6 +50,9 @@ const Yelp = {
                 return businesses; // must return an array when Promise successfully resolves.
             }
         });
+    },
+    searchAutocompleteLocation() {
+        console.log('ok')
     }
 };
 
