@@ -1,6 +1,6 @@
 import React from 'react';
 import './SearchBar.css';
-
+import Yelp from '../../util/Yelp'
 //The search bar will communicate with the Yelp API. it will format the requests sent to the api 
 // and allow users to search by best match, highest rated and most reviewed.
 
@@ -104,7 +104,10 @@ class SearchBar extends React.Component {
         }
       }
     
-    //onKeyDown={this.keyDownSearch}
+    autocompleteLocation(){
+        Yelp.searchAutocompleteLocation(); 
+        // do something with the response. note Yelp.search ... is asnyc code. await or chain .then() 
+    }
 
     componentDidMount(){
         // want to listen for key down enter on whole document, not just on a component.
@@ -124,6 +127,14 @@ class SearchBar extends React.Component {
             
             if (term && location){
                 this.props.searchYelp( term, location, sortBy);
+            }
+        }
+
+        // if state location changes. call Yelp's autocomplete endpoint. 
+        if(this.state.location !== prevState.location){
+            if(this.state.location){
+                // if state location isn't empty. do something.
+                this.autocompleteLocation();
             }
         }
     }
