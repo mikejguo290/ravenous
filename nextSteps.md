@@ -16,7 +16,19 @@ https://www.google.com/maps?q=37.819722,-122.478611
 api response's business.url contains the information
 3. clicking on a different sorting option triggers call to Yelp API. 
 onClick(eventHandler) where each eventHandler checks on state and if different. makes a different call. without clicking on let's go. 
-4. implement my own search! by distance from a central location
-??? how to do it?
+4. implement my own type of sort! e.g. by distance from a central location. use offset if possible? 
+a. user input to pass radius as a parameter to search request. 
+b. pass sort_by=distance parameter to search request to pre-sort api response.
+create a fourth sortBy option
+allow a new input box to be rendered. along side the two existing search bar inputs. although as location accepts postcodes, this may be be redundant. 
+
+Yelp API allows for four types of sort. The type not yet implemented is sort by distance. 
 5. add an event listener on the approriate element in SearchBar.js to listen for 'Enter' key press.
-6. ?????
+6. Yelp autocomplete documentation
+https://www.yelp.com/developers/documentation/v3/autocomplete
+display api request response's categories
+
+searchBar check if state.location is changed in componentDidUpdate
+if so, call Yelp function to get autocomplete suggestions. 
+save response results to state.locationAutocompletions
+display results in location input. 
