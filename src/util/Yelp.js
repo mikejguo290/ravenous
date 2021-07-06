@@ -51,8 +51,26 @@ const Yelp = {
             }
         });
     },
-    searchAutocompleteLocation() {
+    searchAutocompleteLocation(location) {
         console.log('ok')
+        const corsAnywhereServerUrl = 'https://cors-anywhere.herokuapp.com/'
+        const url = `${corsAnywhereServerUrl}https://api.yelp.com/v3/autocomplete?text=${location}&locale=en_GB`
+        return fetch(url, { 
+            headers:{
+                'Authorization': `bearer ${apiKey}`
+            }
+        }).then(response => {
+            if(response.ok){
+                return response.json(); 
+                // response.json() returns a Promise which resolves with the result of parsing body text as JSON();
+                // the above returns a Promise for the chained .then()to work with. 
+                // .then allows the Promise handed to it, to resolve fully before working on them
+                // this means the Promise doesn't have to resolve earlier!
+            }
+            throw new Error('Request has failed!')
+        }, networkError => console.log(networkError.message)
+        ).then(jsonResponse => console.log(jsonResponse)
+        ).catch(error => console.log(error));
     }
 };
 
