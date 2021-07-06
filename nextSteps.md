@@ -32,3 +32,15 @@ searchBar check if state.location is changed in componentDidUpdate
 if so, call Yelp function to get autocomplete suggestions. 
 save response results to state.locationAutocompletions
 display results in location input. 
+
+yelp autocomplete documentation doesn't seem to return the appropriate locations!
+location suggestion doesn't have to be postcode specific, as it is not about delivery to a house, it's about businesses within a radius. 
+just the businesses in an area. e.g. sheffield city centre, sheffield train station. 
+
+google maps places autocomplete seems like a decent fix. 
+https://postcoder.com/docs/address-lookup#address-autocomplete is also good and has a free month trial
+I haven't seen the ability to autocomplete a broad location like London, Euston station or sheffield, city centre however. 
+cors-anywhere has refused connection due to too many requests! 
+
+I have implemented calls to Yelp Autocomplete website although I have not found a way to return expected results. Nevermind displaying the suggested results to the user, other than log to console.
+Nor of ways to try autocomplete apis for free. 
