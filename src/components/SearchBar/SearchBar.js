@@ -16,6 +16,7 @@ class SearchBar extends React.Component {
         this.handleLocationChange = this.handleLocationChange.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.keyDownSearch = this.keyDownSearch.bind(this);
+        this.autocompleteLocation=this.autocompleteLocation.bind(this);
         this.sortByOptions = {
             // member variable - variable inside constructor method.
             // save list of key value pairs to format API GET requests later on. 
@@ -105,7 +106,8 @@ class SearchBar extends React.Component {
       }
     
     autocompleteLocation(){
-        Yelp.searchAutocompleteLocation(); 
+        let location = this.state.location;
+        Yelp.searchAutocompleteLocation(location);
         // do something with the response. note Yelp.search ... is asnyc code. await or chain .then() 
     }
 
