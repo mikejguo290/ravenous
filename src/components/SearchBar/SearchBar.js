@@ -11,7 +11,7 @@ class SearchBar extends React.Component {
             term:'',
             location:'',
             sortBy: 'best_match',
-            autocompleteOptions:['first','second','third']
+            autocompleteOptions:[]
         };
         this.handleTermChange = this.handleTermChange.bind(this);
         this.handleLocationChange = this.handleLocationChange.bind(this);
@@ -100,8 +100,8 @@ class SearchBar extends React.Component {
     */
 
     renderAutocompleteOptions(){
-        return this.state.autocompleteOptions.map(suggestion=>{
-            return (<option key={suggestion} value={suggestion}/>)
+        return this.state.autocompleteOptions.map(option=>{
+            return (<option key={option} value={option}/>)
         });
     }
 
@@ -113,9 +113,13 @@ class SearchBar extends React.Component {
       }
     
     autocompleteTerm(){
+        // this method is called in componentDidUpdate when this.state.term updates. 
+        // it calls Yelp module's searchAutocomplete and then use the array of options to set this.state.autocompleteOptions.
         let term = this.state.term;
-        Yelp.searchAutocomplete(term);
         // do something with the response. note Yelp.search ... is asnyc code. await or chain .then() 
+        // .searchAutocomplete(term) will need to return an array. 
+        Yelp.searchAutocomplete(term).then(options => this.setState({autocompleteOptions:options}));
+        
     }
 
     componentDidMount(){
