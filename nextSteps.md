@@ -44,3 +44,5 @@ cors-anywhere has refused connection due to too many requests!
 
 I have implemented calls to Yelp Autocomplete website although I have not found a way to return expected results. Nevermind displaying the suggested results to the user, other than log to console.
 Nor of ways to try autocomplete apis for free. 
+
+instead, I added autocomplete option to terms input. dynamically rendering the datalist options with a newly created state, populated by calls to Yelp's autocomplete api whenever term changes (and is above 3 characters. etc. )
