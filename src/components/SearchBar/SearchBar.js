@@ -16,7 +16,7 @@ class SearchBar extends React.Component {
         this.handleLocationChange = this.handleLocationChange.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.keyDownSearch = this.keyDownSearch.bind(this);
-        this.autocompleteLocation=this.autocompleteLocation.bind(this);
+        this.autocompleteTerm=this.autocompleteTerm.bind(this);
         this.sortByOptions = {
             // member variable - variable inside constructor method.
             // save list of key value pairs to format API GET requests later on. 
@@ -133,10 +133,10 @@ class SearchBar extends React.Component {
         }
 
         // if state location changes. call Yelp's autocomplete endpoint. 
-        if(this.state.location !== prevState.location){
-            if(this.state.location){
+        if(this.state.term !== prevState.term){
+            if(this.state.term.length> 3){
                 // if state location isn't empty. do something.
-                this.autocompleteLocation();
+                this.autocompleteTerm();
             }
         }
     }
