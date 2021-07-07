@@ -51,10 +51,10 @@ const Yelp = {
             }
         });
     },
-    searchAutocompleteLocation(location) {
+    searchAutocomplete(term) {
         console.log('ok')
         const corsAnywhereServerUrl = 'https://cors-anywhere.herokuapp.com/'
-        const url = `${corsAnywhereServerUrl}https://api.yelp.com/v3/autocomplete?text=${location}&locale=en_GB`
+        const url = `${corsAnywhereServerUrl}https://api.yelp.com/v3/autocomplete?text=${term}&locale=en_GB`
         return fetch(url, { 
             headers:{
                 'Authorization': `bearer ${apiKey}`
@@ -69,7 +69,7 @@ const Yelp = {
             }
             throw new Error('Request has failed!')
         }, networkError => console.log(networkError.message)
-        ).then(jsonResponse => console.log(jsonResponse)
+        ).then(jsonResponse => console.log(jsonResponse.terms)
         ).catch(error => console.log(error));
     }
 };
