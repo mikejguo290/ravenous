@@ -10,7 +10,8 @@ class SearchBar extends React.Component {
         this.state = {
             term:'',
             location:'',
-            sortBy: 'best_match'
+            sortBy: 'best_match',
+            autocompleteOptions:['first','second','third']
         };
         this.handleTermChange = this.handleTermChange.bind(this);
         this.handleLocationChange = this.handleLocationChange.bind(this);
@@ -98,6 +99,12 @@ class SearchBar extends React.Component {
     and if so, implement a search with componentDidUpdate lifecycle method
     */
 
+    renderAutocompleteOptions(){
+        return this.state.autocompleteOptions.map(suggestion=>{
+            return (<option key={suggestion} value={suggestion}/>)
+        });
+    }
+
     keyDownSearch(event){
         // on pressing enter key, trigger search of Yelp API
         if(event.key==="Enter"){
@@ -150,8 +157,12 @@ class SearchBar extends React.Component {
                     </ul>
                 </div>
                 <div className="SearchBar-fields">
-                    <input placeholder="Search Businesses" onChange={this.handleTermChange}/>
+                    <input placeholder="Search Businesses" list="autocomplete" onChange={this.handleTermChange}/>
+                    <datalist id="autocomplete">
+                        {this.renderAutocompleteOptions()}
+                    </datalist>
                     <input placeholder="Where?" onChange={this.handleLocationChange}/>
+
                 </div>
                 <div className="SearchBar-submit">
                     <a href="#" onClick={this.handleSearch}>Let's Go</a>
