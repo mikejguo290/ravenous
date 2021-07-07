@@ -105,9 +105,9 @@ class SearchBar extends React.Component {
         }
       }
     
-    autocompleteLocation(){
-        let location = this.state.location;
-        Yelp.searchAutocompleteLocation(location);
+    autocompleteTerm(){
+        let term = this.state.term;
+        Yelp.searchAutocomplete(term);
         // do something with the response. note Yelp.search ... is asnyc code. await or chain .then() 
     }
 
