@@ -101,9 +101,18 @@ class SearchBar extends React.Component {
 
     renderAutocompleteOptions(){
         const options = this.state.autocompleteOptions;
-        if (options){
+        // if there is just one suggestion and it is identical to the term. don't render suggestion below input. 
+        const duplicateSuggestion = options.length===1 && options.includes(this.state.term); 
+        /*
+        alternatively, in componentDidUpdate
+        if prev.state.autocompleteOptions.includes(this.state.term), then one of the options was selected. don't call autocomplete.
+        but then this method's autocompleteOption isn't updated.
+        */
+        // autocomplete is called whenever options change.
+        if (options && !duplicateSuggestion){
             // don't render if this.state.autocompleteOptions is empty!
             // after clicking on an option , i don't want to trigger autocomplete again...
+            
             return options.map(option=>{
                 return (<option key={option} value={option}/>)
             });
@@ -151,7 +160,7 @@ class SearchBar extends React.Component {
         // if state location changes. call Yelp's autocomplete endpoint. 
         if(this.state.term !== prevState.term){
             if(this.state.term.length> 3){
-                // if state location isn't empty. do something.
+                // if state location isn't empty. do something. 
                 this.autocompleteTerm();
             }
         }
