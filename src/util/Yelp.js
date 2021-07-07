@@ -69,7 +69,11 @@ const Yelp = {
             }
             throw new Error('Request has failed!')
         }, networkError => console.log(networkError.message)
-        ).then(jsonResponse => console.log(jsonResponse.terms)
+        ).then(jsonResponse => {
+            console.log(jsonResponse.terms);
+            const options = jsonResponse.terms.map(term => term.text);
+            return options;
+            }
         ).catch(error => console.log(error));
     }
 };
