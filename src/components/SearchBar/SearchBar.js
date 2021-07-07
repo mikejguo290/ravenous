@@ -100,9 +100,14 @@ class SearchBar extends React.Component {
     */
 
     renderAutocompleteOptions(){
-        return this.state.autocompleteOptions.map(option=>{
-            return (<option key={option} value={option}/>)
-        });
+        const options = this.state.autocompleteOptions;
+        if (options){
+            // don't render if this.state.autocompleteOptions is empty!
+            // after clicking on an option , i don't want to trigger autocomplete again...
+            return options.map(option=>{
+                return (<option key={option} value={option}/>)
+            });
+        }
     }
 
     keyDownSearch(event){
